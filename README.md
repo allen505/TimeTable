@@ -1,27 +1,12 @@
 # Timetable
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
+This project was generated with expo.
 
-## Development server
+## Opening the project 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Clone the repo, navigate to your project-dir and run 'npm install' in the node.js command prompt under the timetable directory to build npm_node directory. Make sure to install Expo-CLI for node.js. Run 'expo start' to start the server which will open up a development tab in your default browser and check if the project is valid. It will then show a QR code both in cmd prompt and browser which can be scanned to run the app. Note that npm install should be done only when the project is opened for the first time and the host computer and android/ios device must be on the same network. Incase you have any virtual machines installed, either disable its network adapter or use 'set REACT_NATIVE_PACKAGER_HOSTNAME=my-custom-ip-address' where my-custom-ip-address is obtained by doing an 'ipconfig' in cmd and replacing it with its ipv4 address.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Target device
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This project is mainly targeted for the iPad(2017) model running latest stable iOS.
