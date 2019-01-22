@@ -7,7 +7,7 @@ import{
 
 import styles from '../style'
 
-class Timetable extends Component{
+class Substitution extends Component{
     
     constructor(props){
         super(props);
@@ -17,13 +17,11 @@ class Timetable extends Component{
         const {container} = styles
         return(
              <View style={container}>
-            <Text>This is Timetable Component</Text>
+            <Text>This is Substitution Component</Text>
             
             </View>
         );
     }
 }
 
-export default Timetable
-
-
+export default Substitution
