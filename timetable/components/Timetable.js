@@ -6,6 +6,7 @@ import{
 } from 'react-native'
 
 import styles from '../style'
+import TtView from './TtView'
 
 class Timetable extends Component{
     
@@ -15,9 +16,10 @@ class Timetable extends Component{
 
     render(){
         const {container} = styles
-        return(
-             <View style={container}>
-            <Text>This is Timetable Component</Text>
+        return(            
+            <View style={container}>
+                <TtView />
+                <Text>This is Timetable Component</Text>
             
             </View>
         );

@@ -12,7 +12,7 @@ class App extends Component {
   
   login(){
     console.log("login() called");
-    this.props.navigation.navigate('sustitution')
+    this.props.navigation.navigate('timetable')
   }
 
   render() {
