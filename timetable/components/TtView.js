@@ -24,19 +24,33 @@ class TtView extends Component{
             '1:30-2:30','2:30-3:30','3:30-4:30'];
         let col2 = ['Class','Class','Tea Break',
             'Class','Free','Lunch Break',
-            '','Class','Free'];
-        let rows = [];
+            'Free','Class','Free'];
+        let rows = [];      
 
-        for(let i=0 ; i<9 ; i++){
-            rows.push(
-                <ButtonGroup
-                    buttons={[col1[i],col2[i]]}
-                    selectMultiple
-                    selectedIndexes={this.state.selected}
-                    onPress={this.updateSelected}
-                />
-            )
-        }
+        rows.push(
+            <ButtonGroup
+                key={0}
+                buttons={[col1[0], col1[1], col1[2],
+                    col1[3], col1[4], col1[5],
+                    col1[6], col1[7], col1[8]]}
+                selectMultiple
+                selectedIndexes={this.state.selected}
+                onPress={this.updateSelected}
+            />
+        )
+
+        rows.push(
+            <ButtonGroup
+                key={1}
+                buttons={[col2[0], col2[1], col2[2],
+                    col2[3], col2[4], col2[5],
+                    col2[6], col2[7], col2[8]]}
+                selectMultiple
+                selectedIndexes={this.state.selected}
+                onPress={this.updateSelected}
+            />
+        )
+        
 
         return(
             <View style={container}>

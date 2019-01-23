@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import{
     View,
     Text,
-    Button
+    TextInput,
 } from 'react-native'
 
 import styles from '../style'
 import TtView from './TtView'
+import DateTimePickerTester from './timePicker'
 
 class Timetable extends Component{
     
@@ -15,13 +16,18 @@ class Timetable extends Component{
     }
 
     render(){
-        const {container} = styles
+        const {container, searchBar, ttView, dateSelector} = styles
         return(            
             <View style={container}>
+                <TextInput 
+                    style = {searchBar}
+                    placeholder = "Search,"    
+                    
+                />
+                <DateTimePickerTester style={dateSelector} />
+                <View style={ttView}></View> 
                 <TtView />
-                {/* <Text>This is Timetable Component</Text> */}
-            
-            </View>
+                </View>
         );
     }
 }
