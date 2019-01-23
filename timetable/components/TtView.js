@@ -17,7 +17,7 @@ class TtView extends Component{
     };
     
     render(){
-        const {container} = styles
+        const {container, ttView} = styles
 
         let col1 = ['8:30-9:30','9:30-10:30','10:30-10:45',
             '10:45-11:45','11:45-12:45','12:45-1:30',
@@ -53,7 +53,7 @@ class TtView extends Component{
         
 
         return(
-            <View style={container}>
+            <View style={ttView}>
 
                 {rows}   
             

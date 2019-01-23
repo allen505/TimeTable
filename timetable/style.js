@@ -5,29 +5,21 @@ export default StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: "column",
-      flexWrap: "nowrap",
       backgroundColor: '#fff',
       alignItems: 'stretch',
       justifyContent: 'center',
       marginTop: 30,
       marginBottom: 25,
+
     },
 
     ttView: {
-      flex: 3,
+      flex: 5,
       flexDirection: "column",
       flexWrap: "nowrap",
       backgroundColor: '#fff',
       alignItems: 'stretch',
-      justifyContent: 'center',
-    },
-
-    dateSelector:{
-      flex: 2,
-      flexDirection: "column",
-      backgroundColor: '#fff',
-      alignItems: 'stretch',
-      justifyContent: 'center',
+      justifyContent: 'center',      
     },
 
     searchBar:{
@@ -37,7 +29,25 @@ export default StyleSheet.create({
       alignItems: 'stretch',
       backgroundColor:'#d5d7dd',
 
-      margin: 5,
-      height: 10,
+      padding:10,
+      borderRadius: 15,
+      height: 35,
+      fontSize: 14,
+    },
+
+    componentView:{
+      flex:1,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'stretch',
+
+      margin: 2,
+      padding:2,
+      borderRadius: 15,
+      
+    },
+
+    dateSelector:{
+      alignItems: 'center',
     }
   });

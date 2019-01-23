@@ -3,6 +3,7 @@ import{
     View,
     Text,
     TextInput,
+    Keyboard,
 } from 'react-native'
 
 import styles from '../style'
@@ -16,16 +17,17 @@ class Timetable extends Component{
     }
 
     render(){
-        const {container, searchBar, ttView, dateSelector} = styles
+        const {container, searchBar, componentView} = styles
         return(            
             <View style={container}>
+                <View style={componentView}>
                 <TextInput 
                     style = {searchBar}
-                    placeholder = "Search,"    
-                    
-                />
-                <DateTimePickerTester style={dateSelector} />
-                <View style={ttView}></View> 
+                    placeholder = "Search" 
+                    onSubmitEditing={Keyboard.dismiss}   
+                    onBlur={Keyboard.dismiss}                    
+                /></View>
+                <DateTimePickerTester/>
                 <TtView />
                 </View>
         );
