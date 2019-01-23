@@ -19,7 +19,7 @@ class Timetable extends Component{
         return(            
             <View style={container}>
                 <TtView />
-                <Text>This is Timetable Component</Text>
+                {/* <Text>This is Timetable Component</Text> */}
             
             </View>
         );
