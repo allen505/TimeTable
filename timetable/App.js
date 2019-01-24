@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import styles from './style'
 import Timetable from './components/Timetable'
 import Substitution from './components/Substitution'
+import Status from './components/Status'
+import Account from './components/Account'
 
 
 class App extends Component {
@@ -48,7 +50,7 @@ export default createBottomTabNavigator({
   },
 
   permissionStatus: { 
-    screen:Substitution,
+    screen:Status,
     navigationOptions:{
       tabBarLabel:'Permission Status',
       tabBarIcon : ({ tintColor }) => (
@@ -58,7 +60,7 @@ export default createBottomTabNavigator({
   },
 
   account: { 
-    screen:Substitution,
+    screen:Account,
     navigationOptions:{
       tabBarLabel:'Account',
       tabBarIcon : ({ tintColor }) => (

@@ -49,5 +49,11 @@ export default StyleSheet.create({
 
     dateSelector:{
       alignItems: 'center',
+    },
+
+    nextbutton:{
+      flex:1,
+      justifyContent: 'flex-end',
+      flexDirection: 'row'
     }
   });
