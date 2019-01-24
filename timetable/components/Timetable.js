@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import{
     View,
     Text,
+    TouchableWithoutFeedback,
     TextInput,
     Keyboard,
 } from 'react-native'
@@ -9,6 +10,12 @@ import{
 import styles from '../style'
 import TtView from './TtView'
 import DateTimePickerTester from './timePicker'
+
+const DismissKeyboard = ({ children }) => (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        { children }
+    </TouchableWithoutFeedback>
+);
 
 class Timetable extends Component{
     
@@ -18,7 +25,8 @@ class Timetable extends Component{
 
     render(){
         const {container, searchBar, componentView} = styles
-        return(            
+        return(        
+            <DismissKeyboard>   
             <View style={container}>
                 <View style={componentView}>
                 <TextInput 
@@ -29,7 +37,7 @@ class Timetable extends Component{
                 /></View>
                 <DateTimePickerTester/>
                 <TtView />
-                </View>
+                </View></DismissKeyboard> 
         );
     }
 }
