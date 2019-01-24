@@ -7,9 +7,11 @@ import{
     Keyboard,
 } from 'react-native'
 
-import styles from '../style'
+
 import TtView from './TtView'
 import DateTimePickerTester from './timePicker'
+import SearchBar from './SearchBar';
+import styles from '../style'
 
 const DismissKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -24,18 +26,12 @@ class Timetable extends Component{
     }
 
     render(){
-        const {container, searchBar, componentView} = styles
+        const { container, componentView } = styles
         return(        
             <DismissKeyboard>   
             <View style={container}>
-                <View style={componentView}>
-                <TextInput 
-                    style = {searchBar}
-                    placeholder = "Search" 
-                    onSubmitEditing={Keyboard.dismiss}   
-                    onBlur={Keyboard.dismiss}                    
-                /></View>
-                <DateTimePickerTester/>
+                <SearchBar />
+                <DateTimePickerTester />
                 <TtView />
                 </View></DismissKeyboard> 
         );
