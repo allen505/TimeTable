@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "landscape",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/tt72.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Sketch003.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
