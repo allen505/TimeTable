@@ -3,14 +3,13 @@ import{
     View,
     Text,
     TouchableWithoutFeedback,
-    TextInput,
     Keyboard,
 } from 'react-native'
-
+import { Header } from 'react-native-elements'
 
 import TtView from './TtView'
 import DateTimePickerTester from './timePicker'
-import SearchBar from './SearchBar';
+import SearchBarComponent from './SearchBarComponent';
 import styles from '../style'
 
 const DismissKeyboard = ({ children }) => (
@@ -27,13 +26,24 @@ class Timetable extends Component{
 
     render(){
         const { container, componentView } = styles
-        return(        
-            <DismissKeyboard>   
+        return(    
+            
             <View style={container}>
-                <SearchBar />
+                <Header
+                placement="center"
+                // leftComponent={<MyCustomLeftComponent />}
+                centerComponent={{ text: 'Timetable', style: { color: '#fff', fontSize: 23 } }}
+                // rightComponent={<MyCustomRightComponent />}
+
+                containerStyle={{
+                    backgroundColor: '#5d9aa4',
+                    justifyContent: 'space-around',
+                  }}
+            />
+                <SearchBarComponent />
                 <DateTimePickerTester />
                 <TtView />
-                </View></DismissKeyboard> 
+                </View>
         );
     }
 }

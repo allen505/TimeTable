@@ -23,7 +23,6 @@ export default class DateTimePickerTester extends Component {
     return (
       <View style={[dateSelector, componentView]}>
         <Button onPress={this._showDateTimePicker} title='Select date'>
-          {/* <Text></Text> */}
         </Button>
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}

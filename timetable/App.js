@@ -3,6 +3,7 @@ import { Text, View, Button } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/Ionicons'
 
+
 import styles from './style'
 import Timetable from './components/Timetable'
 import Substitution from './components/Substitution'
@@ -21,7 +22,6 @@ class App extends Component {
     const {container} = styles
     return (
       <View style={container}>
-        <Text>This is App Component</Text>
         <Button onPress={_ => this.login()} title="Login"></Button>
       </View>
     );
