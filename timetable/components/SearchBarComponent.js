@@ -8,16 +8,16 @@ class SearchBarComponent extends Component{
    render(){
         const { container, componentView, searchBar } = styles
         return(
-           <View style={container}>
-               <View style={[componentView]}>
+           <View>
+               
                <SearchBar
-                    // lightTheme
+                    lightTheme
                     round
                     platform="ios"
                     searchIcon={{ size: 24 }}
                     // cancelButtonTitle="Cancel"
                     placeholder='Search'/>                  
-                </View>
+                
            </View> 
        )
    }

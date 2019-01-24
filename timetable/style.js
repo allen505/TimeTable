@@ -27,10 +27,10 @@ export default StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'stretch',
-      backgroundColor:'#d5d7dd',
-
-      padding:10,
+      backgroundColor:'red',
+      padding:0,
       borderRadius: 15,
+      margin: 10,
       height: 35,
       fontSize: 14,
     },
@@ -38,9 +38,8 @@ export default StyleSheet.create({
     componentView:{
       flex:1,
       flexDirection: 'row',
-      justifyContent: 'center',
       alignItems: 'stretch',
-
+      backgroundColor: 'white',
       margin: 2,
       padding:2,
       borderRadius: 15,
@@ -50,10 +49,11 @@ export default StyleSheet.create({
     dateSelector:{
       alignItems: 'center',
     },
-
-    nextbutton:{
-      flex:1,
-      justifyContent: 'flex-end',
+    
+    datestyle:{
+      flex: 1,
+      justifyContent: 'center',
       flexDirection: 'row'
     }
+
   });

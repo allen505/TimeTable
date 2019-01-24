@@ -2,14 +2,21 @@ import React, { Component } from 'react'
 import{
     View,
     Text,
-    Button
+    Button,
+    Alert
 } from 'react-native'
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { Header} from 'react-native-elements'
+import { createStackNavigator} from 'react-navigation';
+import TtView from './TtView'
+import DateTimePickerTester from './timePicker'
+import Status from './Status'
 
 import styles from '../style'
 
 class Substitution extends Component{
+ static navigationOptions = {
+        title: 'Pick a class',
+   
+    }
     
     constructor(props){
         super(props);
@@ -17,62 +24,57 @@ class Substitution extends Component{
 
     render(){
         const {container} = styles
-        const {nextbutton} = styles
         return(  
+
+      
             <View style ={container}>
-
-            <Text>This is Substitution Component</Text>
-
-
-            <View style={nextbutton}>
-            
-             <Button 
-              title='Next'
-             onPress={()=> this.props.navigation.navigate('Substitution2') }> 
-
-             </Button>
-             </View>
-            
+        <DateTimePickerTester />
+        <TtView />
+             <Button
+        title="Next"
+        onPress={() => this.props.navigation.navigate('Substitution2')}
+        />
             </View>
         );
     }
 }
 
+_okfunc = () =>{
+    console.log('OK Pressed!');
+    <Status />
+};
+
 class Substitution2 extends Component{
+      static navigationOptions = {
+        title: 'Pick a teacher',
+        headerRight: (
+      <Button
+        onPress={() => Alert.alert(
+          'Confirmation',
+          'Do you wish to substitute the selected classes and notify the teacher?',
+          [
+            {text: 'Cancel', onPress: () => console.log('Cancel Pressed!')},
+            {text: 'OK', onPress: () => _okfunc()},
+          ],
+          { cancelable: false }
+        )}
+        title="Confirm"
+         />
+    )
+    }
+ 
+
     
     constructor(props){
         super(props);
     }
 
+
     render(){
         const {container} = styles
-        const {nextbutton} = styles
         return(
              <View style={container}>
             <Text>This is Substitution2 Component</Text>
-            <View style={nextbutton}>
-            <Button 
-              title='Next'
-            onPress={()=> this.props.navigation.navigate('Substitution3') } >
-            </Button>
-            </View>
-            </View>
-        );
-    }
-}
-
-class Substitution3 extends Component{
-    
-    constructor(props){
-        super(props);
-    }
-
-    render(){
-        const {container} = styles
-        const {nextbutton} = styles
-        return(
-             <View style={container}>
-            <Text>This is Substitution3 Component</Text>
             </View>
         );
     }
@@ -81,7 +83,6 @@ class Substitution3 extends Component{
 export default createStackNavigator({
    home: Substitution,
    Substitution2: Substitution2,
-   Substitution3: Substitution3
 });
 
 
