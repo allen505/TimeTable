@@ -26,7 +26,7 @@ class TtView extends Component{
     };
 
     render(){
-        const {container, ttView} = styles
+        const {container, ttView,timetext} = styles
 
         let col1 = ['8:30-9:30','9:30-10:30','10:30-10:45',
             '10:45-11:45','11:45-12:45','12:45-1:30',
@@ -41,7 +41,7 @@ class TtView extends Component{
         for(let i=0 ; i<9 ; i++){
 			let cols = []
 			let key="t"+i;
-			cols.push(<Text key={key}> {col1[i]} </Text>)
+			cols.push(<Text style = {timetext} key={key}> {col1[i]} </Text>)
             if( free.test(col2[i] ) == true ){
 				key="b"+i;
                 cols.push(
@@ -76,7 +76,7 @@ class TtView extends Component{
                     />
                 )
 			}
-			rows.push(<View key={i} style={styles.componentView}>{cols}</View>)
+			rows.push(<View key={i} style={styles.ttView}>{cols}</View>)
         }
         
 

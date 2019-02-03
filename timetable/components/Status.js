@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import{
-    View,
+    ScrollView,
     Text,
 } from 'react-native'
 
@@ -15,10 +15,10 @@ class Substitution extends Component{
     render(){
         const {container} = styles
         return(
-             <View style={container}>
+             <ScrollView style={container}>
             <Text>This is Status Component</Text>
             
-            </View>
+            </ScrollView>
         );
     }
 }

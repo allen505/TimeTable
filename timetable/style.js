@@ -7,9 +7,9 @@ export default StyleSheet.create({
       flexDirection: "column",
       backgroundColor: '#fff',
       alignItems: 'stretch',
-      justifyContent: 'center',
-      marginTop: 30,
-      marginBottom: 25,
+      //justifyContent: 'center',
+      marginTop: 0,
+      marginBottom: 15,
 
     },
 
@@ -19,7 +19,10 @@ export default StyleSheet.create({
       flexWrap: "nowrap",
       backgroundColor: '#fff',
       alignItems: 'stretch',
-      justifyContent: 'center',      
+      justifyContent: 'center', 
+      margin: 10,
+      padding: 10,
+      borderRadius: 10
     },
 
     searchBar:{
@@ -31,6 +34,7 @@ export default StyleSheet.create({
       padding:0,
       borderRadius: 15,
       margin: 10,
+      marginBottom: 20,
       height: 35,
       fontSize: 14,
     },
@@ -41,7 +45,7 @@ export default StyleSheet.create({
       alignItems: 'center',
       alignSelf: 'stretch',
       backgroundColor: 'white',
-      margin: 2,
+      margin: 10,
       padding:2,
       borderRadius: 15,
       
@@ -49,12 +53,23 @@ export default StyleSheet.create({
 
     dateSelector:{
       alignItems: 'center',
+      margin: 10
     },
     
     datestyle:{
       flex: 1,
       justifyContent: 'center',
-      flexDirection: 'row'
+      flexDirection: 'row',
+      margin : 10
+    },
+    timetext:{
+      flex:1,
+      margin: 5,
+      
     }
 
-  });
+  }
+
+
+
+  );
