@@ -9,7 +9,7 @@
       "android"
     ],
     "version": "1.0.0",
-    "orientation": "landscape",
+    "orientation": "portrait",
     "icon": "./assets/tt72.png",
     "splash": {
       "image": "./assets/Sketch003.png",

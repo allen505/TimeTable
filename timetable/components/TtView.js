@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { ButtonGroup, Button } from 'react-native-elements'
+import {CheckBox, Text, Button } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import styles from '../style'
 
@@ -8,14 +9,22 @@ class TtView extends Component{
     constructor(props){
         super(props);
         this.state={
-            selected:[],
+            selected:[false,false,false,false,false,false,false,false,false],
+            checked: false,
         };
     }
-
-    updateSelected = selected => {
-        this.setState({ selected });
+    onSelection = (index) => {
+        let newArray=this.state.selected;
+        for(let i=0 ; i<9 ; i++){
+            if(i==index){
+                newArray[i]=!newArray[i];
+            }
+        }
+        this.setState({
+            selected: newArray,
+        });
     };
-    
+
     render(){
         const {container, ttView} = styles
 
@@ -25,31 +34,50 @@ class TtView extends Component{
         let col2 = ['Class','Class','Tea Break',
             'Class','Free','Lunch Break',
             'Free','Class','Free'];
+        let free = RegExp('Free');
+        let Break = RegExp('.*Break');
         let rows = [];      
 
-        rows.push(
-            <ButtonGroup
-                key={0}
-                buttons={[col1[0], col1[1], col1[2],
-                    col1[3], col1[4], col1[5],
-                    col1[6], col1[7], col1[8]]}
-                selectMultiple
-                selectedIndexes={this.state.selected}
-                onPress={this.updateSelected}
-            />
-        )
-
-        rows.push(
-            <ButtonGroup
-                key={1}
-                buttons={[col2[0], col2[1], col2[2],
-                    col2[3], col2[4], col2[5],
-                    col2[6], col2[7], col2[8]]}
-                selectMultiple
-                selectedIndexes={this.state.selected}
-                onPress={this.updateSelected}
-            />
-        )
+        for(let i=0 ; i<9 ; i++){
+			let cols = []
+			let key="t"+i;
+			cols.push(<Text key={key}> {col1[i]} </Text>)
+            if( free.test(col2[i] ) == true ){
+				key="b"+i;
+                cols.push(
+                    <Button
+                        disabled
+                        key= {key}
+                        title={col2[i]}
+                        type="solid"
+                    />
+                )
+            }
+            else if ( Break.test(col2[i] ) == true ) {
+                cols.push(
+                    <Button
+                        disabled
+                        key= {i}
+                        title={col2[i]}
+                        type="outline"
+                        icon={
+                            <Icon name="ios-close-circle-outline" size={24}/>
+                        }
+                    />
+                )
+            }
+            else{
+                cols.push(
+                    <CheckBox
+                        key= {i}
+                        title={col2[i]}
+                        checked={this.state.selected[i]}
+                        onPress={() => this.onSelection(i)}
+                    />
+                )
+			}
+			rows.push(<View key={i} style={styles.componentView}>{cols}</View>)
+        }
         
 
         return(

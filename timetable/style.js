@@ -38,7 +38,8 @@ export default StyleSheet.create({
     componentView:{
       flex:1,
       flexDirection: 'row',
-      alignItems: 'stretch',
+      alignItems: 'center',
+      alignSelf: 'stretch',
       backgroundColor: 'white',
       margin: 2,
       padding:2,
