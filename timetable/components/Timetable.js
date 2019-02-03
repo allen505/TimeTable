@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import{
     View,
+    ScrollView,
     TouchableWithoutFeedback,
     Keyboard,
 } from 'react-native'
@@ -27,7 +28,7 @@ class Timetable extends Component{
         const { container, componentView } = styles
         return(    
             
-            <View style={container}>
+            <ScrollView style={container}>
                 <Header
                 placement="center"
                 // leftComponent={<MyCustomLeftComponent />}
@@ -42,7 +43,7 @@ class Timetable extends Component{
                 <SearchBarComponent />
                 <DateTimePickerTester />
                 <TtView />
-                </View>
+                </ScrollView>
         );
     }
 }

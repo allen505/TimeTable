@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import{
     View,
+    ScrollView,
     Text,
     Button,
     Alert
@@ -27,14 +28,14 @@ class Substitution extends Component{
         return(  
 
       
-            <View style ={container}>
+            <ScrollView style ={container}>
         <DateTimePickerTester />
         <TtView />
              <Button
         title="Next"
         onPress={() => this.props.navigation.navigate('Substitution2')}
         />
-            </View>
+            </ScrollView>
         );
     }
 }
