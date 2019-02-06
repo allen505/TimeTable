@@ -28,7 +28,7 @@ class Timetable extends Component{
         const { container, componentView } = styles
         return(    
             
-            <ScrollView style={container}>
+            <ScrollView style={container} directionalLockEnabled={true}>
                 <Header
                 placement="center"
                 // leftComponent={<MyCustomLeftComponent />}

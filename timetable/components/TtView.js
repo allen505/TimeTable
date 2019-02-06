@@ -19,7 +19,7 @@ class TtView extends Component{
             if(i==index){
                 newArray[i]=!newArray[i];
             }
-        }
+       }
         this.setState({
             selected: newArray,
         });
@@ -36,9 +36,14 @@ class TtView extends Component{
             'Free','Class','Free'];
         let free = RegExp('Free');
         let Break = RegExp('.*Break');
-        let rows = [];      
+        let rows = [];     
+        let i=0; 
 
-        for(let i=0 ; i<9 ; i++){
+        col1.map((data,index) => {
+            
+
+
+        //for(let i=0 ; i<9 ; i++){
 			let cols = []
 			let key="t"+i;
 			cols.push(<Text style = {timetext} key={key}> {col1[i]} </Text>)
@@ -69,15 +74,19 @@ class TtView extends Component{
             else{
                 cols.push(
                     <CheckBox
-                        key= {i}
-                        title={col2[i]}
-                        checked={this.state.selected[i]}
-                        onPress={() => this.onSelection(i)}
+                        key= {index}
+                        title={col2[index]}
+                        checked={this.state.selected[index]}
+                        onPress={() => this.onSelection(index)}
+                       // onPress={() => this.setState({ checked: false })}
                     />
                 )
 			}
-			rows.push(<View key={i} style={styles.ttView}>{cols}</View>)
+        rows.push(<View key={i} style={styles.ttView}>{cols}</View>)
+            
+            i++;
         }
+        );
         
 
         return(
