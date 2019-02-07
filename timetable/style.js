@@ -6,8 +6,8 @@ export default StyleSheet.create({
       flex: 1,
       flexDirection: "column",
       backgroundColor: '#fff',
-      alignItems: 'default',
-      justifyContent: 'default',
+      //alignItems: 'stretch',
+      //justifyContent: 'center',
       marginTop: 0,
       marginBottom: 15,
 
@@ -20,8 +20,8 @@ export default StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'stretch',
       justifyContent: 'center', 
-      margin: 5,
-      padding: 0,
+      margin: 10,
+      padding: 10,
       borderRadius: 10
     },
 
@@ -30,7 +30,7 @@ export default StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'stretch',
-      backgroundColor:'#fff',
+      backgroundColor:'red',
       padding:0,
       borderRadius: 15,
       margin: 10,
@@ -44,7 +44,7 @@ export default StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       alignSelf: 'stretch',
-      backgroundColor: '#fff',
+      backgroundColor: 'white',
       margin: 10,
       padding:2,
       borderRadius: 15,
@@ -66,6 +66,11 @@ export default StyleSheet.create({
       flex:1,
       margin: 5,
       
+    },
+    display:{
+      flex:2,
+      flexDirection:'column',
+      padding:0
     }
 
   }
