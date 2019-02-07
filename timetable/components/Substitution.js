@@ -4,12 +4,14 @@ import{
     ScrollView,
     Text,
     Button,
-    Alert
+    Alert,
+    Image
 } from 'react-native'
 import { createStackNavigator} from 'react-navigation';
 import TtView from './TtView'
 import DateTimePickerTester from './timePicker'
 import Status from './Status'
+import Cards from './Cards.js'
 
 import styles from '../style'
 
@@ -72,11 +74,20 @@ class Substitution2 extends Component{
 
 
     render(){
-        const {container} = styles
+        const {container,display} = styles
         return(
-             <View style={container}>
-            <Text>This is Substitution2 Component</Text>
-            </View>
+             <ScrollView style={container}>
+             <View style={display}>
+             <Cards/>
+             <Cards/>
+             <Cards/>
+             </View>
+             <View style={display}>
+             <Cards/>
+             <Cards/>
+             <Cards/>
+             </View>
+            </ScrollView>
         );
     }
 }
