@@ -80,10 +80,12 @@ class Substitution2 extends Component{
              <View style={display}>
              <Cards/>
              <Cards/>
-             <Cards/>
              </View>
              <View style={display}>
              <Cards/>
+             <Cards/>
+             </View>
+             <View style={display}>
              <Cards/>
              <Cards/>
              </View>
