@@ -68,9 +68,17 @@ export default StyleSheet.create({
       
     },
     display:{
-      flex:2,
-      flexDirection:'column',
+      flex:1,
+      flexDirection:'row',
       padding:0
+    },
+
+    button:{
+      flex:1,
+      flexDirection: 'row',
+      alignItems:'center',
+      padding: 10,
+      justifyContent : 'center'
     }
 
   }
