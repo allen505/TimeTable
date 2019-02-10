@@ -31,12 +31,13 @@ class Timetable extends Component{
             <ScrollView style={container} directionalLockEnabled={true}>
                 <Header
                 placement="center"
+                backgroundColor="#147efb"
                 // leftComponent={<MyCustomLeftComponent />}
                 centerComponent={{ text: 'Timetable', style: { color: '#fff', fontSize: 23 } }}
                 // rightComponent={<MyCustomRightComponent />}
 
                 containerStyle={{
-                    backgroundColor: '#5d9aa4',
+                   // backgroundColor: '#5d9aa4',
                     justifyContent: 'space-around',
                   }}
             />

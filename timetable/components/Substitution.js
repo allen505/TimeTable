@@ -17,9 +17,11 @@ import styles from '../style'
 
 class Substitution extends Component{
  static navigationOptions = {
-        title: 'Pick a class',
-   
+     
+        title: 'Pick a class'
+        
     }
+    
     
     constructor(props){
         super(props);
@@ -33,10 +35,12 @@ class Substitution extends Component{
             <ScrollView style ={container}>
         <DateTimePickerTester />
         <TtView />
-             <Button
-        title="Next"
-        onPress={() => this.props.navigation.navigate('Substitution2')}
-        />
+                    <Button
+                        title="Next"
+                        onPress={() => this.props.navigation.navigate('Substitution2')}
+                    />
+                
+       
             </ScrollView>
         );
     }
@@ -54,7 +58,7 @@ class Substitution2 extends Component{
       <Button
         onPress={() => Alert.alert(
           'Confirmation',
-          'Do you wish to substitute the selected classes and notify the teacher?',
+          'Are you sure to notify selected teachers?',
           [
             {text: 'Cancel', onPress: () => console.log('Cancel Pressed!')},
             {text: 'OK', onPress: () => _okfunc()},
