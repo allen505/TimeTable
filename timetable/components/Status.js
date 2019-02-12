@@ -5,7 +5,7 @@ import{
     ButtonGroup,
     View,
     Image,
-    TouchableHighlight,
+    TouchableOpacity,
     Button
 } from 'react-native'
 import {Card,Header} from 'react-native-elements';
@@ -38,17 +38,17 @@ class Substitution extends Component{
                         <Text style={{fontWeight:'500',fontSize:15}}>Designation</Text>
                     </View>
                     <View>
-                        <Image source={require('../assets/icon.png')} style={{widht:60,height:60}} resizeMode="contain"/>
+                        <Image source={require('../assets/icon.png')} style={{height:60}} resizeMode="contain"/>
                     </View>
                 </View>
                 <Text> Has requested you to substitute (Class name) during (Period number) session on (Date). </Text>
                 <View style={button}>
-                    <Button title="Confirm" color='white'>
-                    <TouchableHighlight underlayColor='black'>
-                        <Text color='black'>Confirm</Text></TouchableHighlight></Button>
-                    <Button 
-                    title="Reject"
-                    type="outline"/>
+                    <TouchableOpacity onPress={()=> console.log("Confirm pressed")}>
+                    <Text style={{fontSize:18}}>Confirm</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=> console.log("Reject pressed")}>
+                    <Text style={{fontSize:18}}>Reject</Text>
+                    </TouchableOpacity>
                 </View>
             </Card>
             </View>
