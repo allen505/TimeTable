@@ -44,10 +44,10 @@ class Substitution extends Component{
                 <Text style = {{padding:10}}>Has requested you to substitute (Class name) during (Period number) session on (Date). </Text>
                 <View style={button}>
                     <TouchableOpacity onPress={()=> console.log("Confirm pressed")}>
-                    <Text style={{fontSize:18, padding: 20}}>Confirm</Text>
+                    <Text style={{fontSize:18, padding: 10, color: 'green'}}>Confirm</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=> console.log("Reject pressed")}>
-                    <Text style={{fontSize:18}}>Reject</Text>
+                    <Text style={{fontSize:18, padding: 10, color: 'red'}}>Reject</Text>
                     </TouchableOpacity>
                 </View>
             </Card>
