@@ -24,7 +24,7 @@ class Substitution extends Component{
     
     displayNotification =() => {
     var notification = [];
-    let jsonmap = ['1', '2', '3'];
+    let jsonmap = ['1', '2', '3','4','5'];
     jsonmap.map((data, index) => {
     
     const {container,button,display}= styles
@@ -61,17 +61,21 @@ class Substitution extends Component{
     render(){
         const {container} = styles
         return(
-            
-             <ScrollView style={container}>
-                <Header
+            <View style={container}>
+            <View>
+            <Header
                      barStyle = 'light-content'
                      backgroundColor="#147efb"
                     //leftComponent={{ icon: 'menu', color: '#fff' }}
                     centerComponent={{ text: 'Permission Status', style: { color: '#fff' ,fontSize: 23}  }}
                 // rightComponent={{ icon: 'home', color: '#fff' }}
                 />
+            </View>
+             <ScrollView style={container}>
+           
             {this.displayNotification()}
             </ScrollView>
+            </View>
         );
     }
 }
