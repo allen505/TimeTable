@@ -27,24 +27,32 @@ class Timetable extends Component{
     render(){
         const { container, componentView } = styles
         return(    
+            <View style={container}>
+            <View>
+                <Header
+                    placement="center"
+                    backgroundColor="#147efb"
+                    // leftComponent={<MyCustomLeftComponent />}
+                    centerComponent={{ text: 'Timetable', style: { color: '#fff', fontSize: 23 } }}
+                    // rightComponent={<MyCustomRightComponent />}
+
+                    containerStyle={{
+                        // backgroundColor: '#5d9aa4',
+                        justifyContent: 'space-around',
+                    }}
+                />
+                <SearchBarComponent />
+                </View>
+
             
             <ScrollView style={container} directionalLockEnabled={true}>
-                <Header
-                placement="center"
-                backgroundColor="#147efb"
-                // leftComponent={<MyCustomLeftComponent />}
-                centerComponent={{ text: 'Timetable', style: { color: '#fff', fontSize: 23 } }}
-                // rightComponent={<MyCustomRightComponent />}
-
-                containerStyle={{
-                   // backgroundColor: '#5d9aa4',
-                    justifyContent: 'space-around',
-                  }}
-            />
-                <SearchBarComponent />
+               
+            
+                
                 <DateTimePickerTester />
                 <TtView />
                 </ScrollView>
+            </View>
         );
     }
 }

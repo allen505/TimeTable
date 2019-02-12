@@ -33,18 +33,18 @@ class Substitution extends Component{
             <Card>
                 <View style={display}>
                     <View>
-                        <Text style={{fontWeight: 'bold',fontSize:20}}> Teacher name</Text>
-                        <Text style={{fontWeight:'500',fontSize:18}}>Department</Text>
-                        <Text style={{fontWeight:'500',fontSize:15}}>Designation</Text>
+                        <Text style={{fontWeight: 'bold',fontSize:25, padding: 5}}>Teacher name</Text>
+                            <Text style={{ fontWeight: '500', fontSize: 18, padding: 5}}>Department</Text>
+                            <Text style={{ fontWeight: '500', fontSize: 15, padding: 5}}>Designation</Text>
                     </View>
-                    <View>
-                        <Image source={require('../assets/icon.png')} style={{height:60}} resizeMode="contain"/>
+                    <View style={{margin: 5}}>
+                        <Image source={require('../assets/contact.png')} style={{width: 900, height:50}} resizeMode="contain"/>
                     </View>
                 </View>
-                <Text> Has requested you to substitute (Class name) during (Period number) session on (Date). </Text>
+                <Text style = {{padding:10}}>Has requested you to substitute (Class name) during (Period number) session on (Date). </Text>
                 <View style={button}>
                     <TouchableOpacity onPress={()=> console.log("Confirm pressed")}>
-                    <Text style={{fontSize:18}}>Confirm</Text>
+                    <Text style={{fontSize:18, padding: 20}}>Confirm</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=> console.log("Reject pressed")}>
                     <Text style={{fontSize:18}}>Reject</Text>
