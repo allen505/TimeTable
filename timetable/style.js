@@ -77,8 +77,10 @@ export default StyleSheet.create({
       flex:1,
       flexDirection: 'row',
       alignItems:'center',
-      padding: 10,
-      justifyContent : 'center'
+      padding: 5,
+      justifyContent : 'center',
+      margin:5,
+
     }
 
   }
