@@ -36,7 +36,7 @@ CREATE TABLE `class1a` (
   `Friday` varchar(50) DEFAULT NULL,
   `Saturday` varchar(50) DEFAULT NULL,
   `Period` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table stores the Time Table of class 1a';
 
 --
 -- Dumping data for table `class1a`
@@ -65,7 +65,7 @@ CREATE TABLE `class1b` (
   `Friday` varchar(50) DEFAULT NULL,
   `Saturday` varchar(50) DEFAULT NULL,
   `Period` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table stores the time table for class 1b';
 
 --
 -- Dumping data for table `class1b`
@@ -89,7 +89,7 @@ INSERT INTO `class1b` (`Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `
 CREATE TABLE `classhandler` (
   `uid` varchar(50) NOT NULL,
   `class` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table stores the UID of a teacher handling a theory subject for a particular class';
 
 --
 -- Dumping data for table `classhandler`
@@ -139,7 +139,7 @@ CREATE TABLE `teachprof` (
   `desg` varchar(50) NOT NULL DEFAULT 'Lecturer',
   `dept` varchar(50) NOT NULL,
   `uid` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT= 'This table stores the UID of all teachers along with their basic profile info';
 
 --
 -- Dumping data for table `teachprof`
