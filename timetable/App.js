@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/Ionicons'
-
+import Login from 'react-native-simple-login'
 
 import styles from './style'
 import Timetable from './components/Timetable'
@@ -16,17 +16,23 @@ class App extends Component {
     title: 'Login',
 
   };
-  
+
+
   login(){
     console.log("login() called");
     navigate("timetable");
   }
 
   render() {
+    
+
     const {container} = styles
     const {navigate} = this.props.navigation;
     return (
+     
       <View style={container}>
+        <Login
+        />
         <Button 
         title = "Login"
         onPress={() => this.login()} ></Button>
