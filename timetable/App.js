@@ -12,17 +12,24 @@ import Account from './components/Account'
 
 
 class App extends Component {
+  static navigationOptions = {
+    title: 'Login',
+
+  };
   
   login(){
     console.log("login() called");
-    this.props.navigation.navigate('timetable')
+    navigate("timetable");
   }
 
   render() {
     const {container} = styles
+    const {navigate} = this.props.navigation;
     return (
       <View style={container}>
-        <Button onPress={_ => this.login()} title="Login"></Button>
+        <Button 
+        title = "Login"
+        onPress={() => this.login()} ></Button>
       </View>
     );
   }
