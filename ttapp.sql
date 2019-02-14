@@ -175,21 +175,6 @@ ALTER TABLE `class1a`
 ALTER TABLE `class1b`
   ADD PRIMARY KEY (`Period`);
 
---
--- Indexes for table `classhandler`
---
-ALTER TABLE `classhandler`
-  ADD PRIMARY KEY (`uid`);
-
---
--- Indexes for table `labhandler`
---
-ALTER TABLE `labhandler`
-  ADD PRIMARY KEY (`uid`);
-
---
--- Indexes for table `teachprof`
---
 ALTER TABLE `teachprof`
   ADD PRIMARY KEY (`uid`);
 
