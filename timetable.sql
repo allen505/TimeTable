@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2019 at 01:16 PM
+-- Generation Time: Feb 14, 2019 at 02:29 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -21,6 +21,65 @@ SET time_zone = "+00:00";
 --
 -- Database: `timetable`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slot_table`
+--
+
+CREATE TABLE `slot_table` (
+  `Slot ID` varchar(50) NOT NULL,
+  `Subject ID` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subjects_table`
+--
+
+CREATE TABLE `subjects_table` (
+  `Subject ID` varchar(50) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Semester` int(50) NOT NULL,
+  `Elective` enum('Core','Elective') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher_table`
+--
+
+CREATE TABLE `teacher_table` (
+  `Teacher ID` varchar(50) NOT NULL,
+  `Name` text NOT NULL,
+  `Subjects` varchar(50) NOT NULL,
+  `Classes` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `slot_table`
+--
+ALTER TABLE `slot_table`
+  ADD PRIMARY KEY (`Slot ID`);
+
+--
+-- Indexes for table `subjects_table`
+--
+ALTER TABLE `subjects_table`
+  ADD PRIMARY KEY (`Subject ID`);
+
+--
+-- Indexes for table `teacher_table`
+--
+ALTER TABLE `teacher_table`
+  ADD PRIMARY KEY (`Teacher ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
