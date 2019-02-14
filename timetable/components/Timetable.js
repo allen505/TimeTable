@@ -22,10 +22,30 @@ class Timetable extends Component{
     
     constructor(props){
         super(props);
+        this.state={
+            name:[]
+        }
+    }
+
+
+    componentWillMount(){
+        const url = 'https://randomuser.me/api/?results=1';
+        fetch(url)
+        .then((resp) => resp.json()) // Transform the data into json
+        .then((data) => {
+            this.setState({
+                name :data.name
+            })
+            // console.log(data);
+        })
     }
 
     render(){
-        const { container, componentView } = styles
+        console.log(this.state.name);
+        const { container, componentView } = styles;
+
+        
+
         return(    
             <View style={container}>
             <View>
@@ -51,6 +71,8 @@ class Timetable extends Component{
                 
                 <DateTimePickerTester />
                 <TtView />
+                  
+                  
                 </ScrollView>
             </View>
         );
