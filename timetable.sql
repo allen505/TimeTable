@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2019 at 02:29 PM
+-- Generation Time: Feb 14, 2019 at 04:15 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -25,13 +25,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `slot_table`
+-- Table structure for table `slot_table_4a`
 --
 
-CREATE TABLE `slot_table` (
+CREATE TABLE `slot_table_4a` (
   `Slot ID` varchar(50) NOT NULL,
-  `Subject ID` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Subject ID` varchar(50) NOT NULL COMMENT 'This column will have data in form of [VTU SUBJECT CODE]+[SECTION]'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='The slots and subjects table for class 4A';
 
 -- --------------------------------------------------------
 
@@ -55,8 +55,16 @@ CREATE TABLE `subjects_table` (
 CREATE TABLE `teacher_table` (
   `Teacher ID` varchar(50) NOT NULL,
   `Name` text NOT NULL,
-  `Subjects` varchar(50) NOT NULL,
-  `Classes` varchar(50) NOT NULL
+  `Department` text NOT NULL,
+  `Designation` text NOT NULL,
+  `Classes` varchar(50) NOT NULL COMMENT 'Stores a string of classes taken by the teachers',
+  `Subject 1` varchar(50) NOT NULL COMMENT 'This column will have data in form of [VTU SUBJECT CODE]+[SECTION]',
+  `Subject 2` varchar(50) DEFAULT NULL COMMENT 'Holds the 2nd subject handled by a teacher',
+  `Subject 3` varchar(50) DEFAULT NULL COMMENT 'Holds the 3rd subject handled by a teacher',
+  `Subject 4` varchar(50) DEFAULT NULL COMMENT 'Holds the 4th subject handled by a teacher',
+  `Subject 5` varchar(50) DEFAULT NULL COMMENT 'Holds the 5th subject handled by a teacher',
+  `Subject 6` varchar(50) DEFAULT NULL COMMENT 'Holds the 6th subject handled by a teacher',
+  `Subject 7` varchar(50) DEFAULT NULL COMMENT 'Holds the 7th subject handled by a teacher'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -64,9 +72,9 @@ CREATE TABLE `teacher_table` (
 --
 
 --
--- Indexes for table `slot_table`
+-- Indexes for table `slot_table_4a`
 --
-ALTER TABLE `slot_table`
+ALTER TABLE `slot_table_4a`
   ADD PRIMARY KEY (`Slot ID`);
 
 --
