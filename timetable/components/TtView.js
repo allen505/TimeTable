@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import {CheckBox, Text, Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons'
+import { Table, Row, Rows } from 'react-native-table-component';
 
 import styles from '../style'
 
@@ -11,6 +12,13 @@ class TtView extends Component{
         this.state={
             selected:[false,false,false,false,false,false,false,false,false],
             checked: false,
+            tableHead: ['Head', 'Head2'],
+            tableData: [
+                ['1', '2',],
+                ['a', 'b',],
+                ['1', '2',],
+                ['a', 'b',]
+            ]
         };
     }
     onSelection = (index) => {
@@ -91,7 +99,12 @@ class TtView extends Component{
 
         return(
             <View style={ttView}>
-
+            <View style={styles.container}>
+                <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+                <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text}/>
+                <Rows data={this.state.tableData} textStyle={styles.text}/>
+                </Table>
+            </View>
                 {rows}   
             
             </View>

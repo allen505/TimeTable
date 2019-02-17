@@ -15,6 +15,7 @@
     "react-native-gesture-handler": "^1.0.14",
     "react-native-modal-datetime-picker": "^6.0.0",
     "react-native-simple-login": "^1.1.0",
+    "react-native-table-component": "^1.2.0",
     "react-navigation": "^2.18.3"
   },
   "devDependencies": {
