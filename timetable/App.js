@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { View, Button } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation'
+import { View, Button, Text, TextInput } from 'react-native';
+import { 
+  createBottomTabNavigator,
+  createSwitchNavigator
+ } from 'react-navigation'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 
@@ -10,36 +13,7 @@ import Substitution from './components/Substitution'
 import Status from './components/Status'
 import Account from './components/Account'
 
-
-class App extends Component {
-  static navigationOptions = {
-    title: 'Login',
-
-  };
-
-
-  login(){
-    console.log("login() called");
-    navigate("timetable");
-  }
-
-  render() {
-    
-
-    const {container} = styles
-    const {navigate} = this.props.navigation;
-    return (
-     <View>
-     
-        <Button 
-        title = "Login"
-        onPress={() => this.login()} ></Button>
-      </View>
-    );
-  }
-}
-
-export default createBottomTabNavigator({
+const BottomTabNavigator = createBottomTabNavigator({
   timetable: { 
     screen:Timetable,
     navigationOptions:{
@@ -80,3 +54,42 @@ export default createBottomTabNavigator({
     }
   }
 })
+
+class WelcomeScreen extends Component{
+   render(){
+       return(
+        <View style={{
+			flex: 1,
+			justifyContent: 'center',
+			alignItems: 'center'
+		  }}>
+            <TextInput
+				style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+				// onChangeText={(text) => this.setState({text})}
+				// value={this.state.text}
+			/> 
+        	<Button title='Login' onPress={() => this.props.navigation.navigate('bottomTab')}/>
+        </View>
+       )
+   }
+}
+
+
+const SwitchNav = createSwitchNavigator({
+  welcome : { screen : WelcomeScreen},
+  bottomTab:{ screen : BottomTabNavigator}
+})
+
+class App extends Component {
+
+  render() {
+  
+    return (
+    <SwitchNav/>
+    );
+  }
+}
+export default App
+
+
+
