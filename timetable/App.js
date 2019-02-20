@@ -93,10 +93,12 @@ class WelcomeScreen extends Component{
        if (this.state.auth_token == '') {
          return (
            <View style = {{
-             flex: 1,
-             justifyContent: "center",
-             alignItems: "center"
+             flex: 2,
+             justifyContent: "flex-end",
+             alignItems: "center",
            }}>
+       
+          
              <TextInput
                placeholder="Enter User name"
                onChangeText={TextInputValue =>
@@ -106,13 +108,15 @@ class WelcomeScreen extends Component{
                  {
                    textAlign: 'center',
                    width: '90%',
-                   marginBottom: 7,
+                   marginBottom: 50,
                    height: 40,
                    borderRadius: 5,
                    fontSize: 20,
+                   backgroundColor: "#EEEEEE"
                  }
                }
              />
+            
              <TextInput
                placeholder="Enter password"
                onChangeText={TextInputValue =>
@@ -123,10 +127,11 @@ class WelcomeScreen extends Component{
                  {
                    textAlign: 'center',
                    width: '90%',
-                   marginBottom: 20,
+                   marginBottom: 50,
                    height: 40,
                    borderRadius: 5,
                    fontSize: 20,
+                   backgroundColor: "#EEEEEE"
                  }
                }
              />
@@ -135,12 +140,12 @@ class WelcomeScreen extends Component{
              <TouchableOpacity onPress={this.Login.bind(this)}>
                <View style={{
                  height: 50, 
-                 width: 100,
+                 width: "70%",
                  backgroundColor:'#147efb', 
                  justifyContent: 'center',
                  alignItems: 'center',
-                 margin: 10,
-                 borderRadius: 10
+                 margin: 50,
+                 borderRadius: 100
                }}>
                  <Text style={{ 
                    fontSize: 20,
@@ -149,6 +154,7 @@ class WelcomeScreen extends Component{
                    Login </Text>
                </View>
              </TouchableOpacity>
+  
            </View>
            </View>
          );
