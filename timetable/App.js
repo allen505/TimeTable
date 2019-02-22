@@ -6,6 +6,7 @@ import {
  } from 'react-navigation'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {Alert, TouchableOpacity } from 'react-native';
+import { AsyncStorage } from 'react-native';
 
 import styles from './style'
 import Timetable from './components/Timetable'
@@ -60,8 +61,19 @@ class WelcomeScreen extends Component{
   state = {
     username: '',
     password: '',
-    auth_token: '1234'
+    auth_token_state: '',
+    hasToken: 'false'
+    
   }
+
+  componentDidMount() {
+    const token = AsyncStorage.getItem('token');
+  }
+  
+
+
+
+ 
      Login = async () => {
        fetch('LOGIN DATA LINK', {
          method: 'post',
@@ -82,15 +94,21 @@ class WelcomeScreen extends Component{
            }
            else {
              this.setState({ auth_token: res.auth_token });
+             AsyncStorage.setItem('token',res.auth_token);
+             hasToken  = 'true';
              Alert.alert("Welcome", " You have succesfully logged in");
            }
          }).catch((error) => {
            console.error(error);
          });
+
+         
+
+        
      }
      render(){
        //If auth token is not present
-       if (this.state.auth_token == '') {
+       if (this.state.auth_token_state == '' && hasToken == 'false') {
          return (
            <View style = {{
              flex: 2,
