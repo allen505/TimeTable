@@ -5,8 +5,10 @@ import{
     Text,
     Button,
     Alert,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native'
+import {Card } from 'react-native-elements';
 import { createStackNavigator} from 'react-navigation';
 import TtView from './TtView'
 import DateTimePickerTester from './timePicker'
@@ -76,23 +78,39 @@ class Substitution2 extends Component{
         super(props);
     }
 
-
+    displayCard =() => {
+        var cards = [];
+        let jsonmap = ['1', '2', '3','4','5'];
+        jsonmap.map((data, index) => {
+        
+        const {container,button,display}= styles
+            cards.push(
+                <View style ={container}>
+                <Card>
+                    <View style={display}>
+                        <View>
+                            <Text style={{fontWeight: 'bold',fontSize:25, padding: 5}}>Teacher name</Text>
+                                <Text style={{ fontWeight: '500', fontSize: 18, padding: 5}}>Department</Text>
+                                <Text style={{ fontWeight: '500', fontSize: 15, padding: 5}}>Designation</Text>
+                        </View>
+                        <View style={{margin: 5}}>
+                            <Image source={require('../assets/contact.png')} style={{width: 900, height:50}} resizeMode="contain"/>
+                        </View>
+                    </View>
+                    <Text style = {{padding:10}}>The teacher is available for (number) of periods </Text>
+                </Card>
+                </View>
+            )
+        }
+        );
+        return cards;
+        }
+    
     render(){
         const {container,display} = styles
         return(
              <ScrollView style={container}>
-             <View style={display}>
-             <Cards/>
-             <Cards/>
-             </View>
-             <View style={display}>
-             <Cards/>
-             <Cards/>
-             </View>
-             <View style={display}>
-             <Cards/>
-             <Cards/>
-             </View>
+                {this.displayCard()}
             </ScrollView>
         );
     }
