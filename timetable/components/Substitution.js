@@ -13,7 +13,6 @@ import { createStackNavigator} from 'react-navigation';
 import TtView from './TtView'
 import DateTimePickerTester from './timePicker'
 import Status from './Status'
-import Cards from './Cards.js'
 
 import styles from '../style'
 
