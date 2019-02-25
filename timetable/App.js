@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, Text, TextInput } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import { 
   createBottomTabNavigator,
   createSwitchNavigator
@@ -62,18 +62,8 @@ class WelcomeScreen extends Component{
     username: '',
     password: '',
     auth_token_state: '',
-    hasToken: 'false'
     
-  }
-
-  componentDidMount() {
-    const token = AsyncStorage.getItem('token');
-  }
-  
-
-
-
- 
+  } 
      Login = async () => {
        fetch('LOGIN DATA LINK', {
          method: 'post',
@@ -102,13 +92,21 @@ class WelcomeScreen extends Component{
            console.error(error);
          });
 
-         
+      
+
+       }
+  tempfunc() {
+
+    this.Login.bind(this);
+    this.setState = '1234';
+    this.props.navigation.navigate('bottomTab');
+
 
         
      }
      render(){
        //If auth token is not present
-       if (this.state.auth_token_state == '' && hasToken == 'false') {
+       if (this.state.auth_token_state == '') {
          return (
            <View style = {{
              flex: 2,
@@ -153,9 +151,12 @@ class WelcomeScreen extends Component{
                  }
                }
              />
-              
+
+            
+
+
               <View>
-             <TouchableOpacity onPress={this.Login.bind(this)}>
+             <TouchableOpacity onPress={() => this.tempfunc()}>
                <View style={{
                  height: 50, 
                  width: "70%",
@@ -170,6 +171,7 @@ class WelcomeScreen extends Component{
                    color: '#FFFFFF',
                  }}>
                    Login </Text>
+                   
                </View>
              </TouchableOpacity>
   
