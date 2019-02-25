@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import {CheckBox, Text, Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons'
+import { Table, Row, Rows } from 'react-native-table-component';
 
 import styles from '../style'
 
@@ -45,16 +46,19 @@ class TtView extends Component{
             if( free.test(Subjects[i] ) == true ){
                 key="b"+i;
                 cols.push(
+                    <View style={{ flex: 2, flexDirection: "row", alignItems: "center", margin: 10}}>
                     <Button
                         disabled
                         title={Subjects[i]}
                         type="solid"
-                        style={{flex:5}}
+                        style={{alignSelf: "stretch"}}
                     />
+                    </View>
                 )
             }
             else if ( Break.test(Subjects[i] ) == true ) {
                 cols.push(
+                    <View style={{ flex: 2, flexDirection: "row", alignItems: "center", margin: 10 }}>
                     <Button
                         disabled
                         title={Subjects[i]}
@@ -62,8 +66,9 @@ class TtView extends Component{
                         icon={
                             <Icon name="ios-close-circle-outline" size={24}/>
                         }
-                        style={{flex:5}}
+                        style ={{alignSelf: "stretch"}}
                     />
+                    </View>
                 )
             }
             else{
@@ -77,7 +82,7 @@ class TtView extends Component{
                     />
                 )
             }
-            rows[i]=<View style={{flexDirection: "row"}}>{cols}</View>;
+            rows[i]=<View style={{flexDirection: "row", alignItems: "center", margin: 10}}>{cols}</View>;
         }
 
         return(
