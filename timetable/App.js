@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput,Button } from 'react-native';
 import { 
-  createBottomTabNavigator,
-  createSwitchNavigator
- } from 'react-navigation'
+createBottomTabNavigator,
+createSwitchNavigator
+} from 'react-navigation'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {Alert, TouchableOpacity } from 'react-native';
 import { AsyncStorage } from 'react-native';
@@ -12,48 +12,73 @@ import styles from './style'
 import Timetable from './components/Timetable'
 import Substitution from './components/Substitution'
 import Status from './components/Status'
-import Account from './components/Account'
+
+
+class Account extends Component{
+    
+    constructor(props){
+        super(props);
+    }
+
+    logout = () => {
+		console.log("logout is pressed");
+        AsyncStorage.removeItem('userData');
+        this.props.navigation.navigate('welcome');
+    }
+
+    render(){
+        const {container} = styles
+        return(
+             <View style={{justifyContent: 'center',alignItems: "center", padding:50}}>
+            <Button style={{color:'red'}}
+                title="Log Out"
+                onPress={() => this.logout()}></Button>
+                
+            </View>
+        );
+    }
+}
 
 const BottomTabNavigator = createBottomTabNavigator({
-  timetable: { 
-    screen:Timetable,
-    navigationOptions:{
-      tabBarLabel:'Timetable',
-      tabBarIcon : ({ tintColor }) => (
-        <Icon name="ios-grid" size={24}/>
-      )
-    }
-  },
+timetable: { 
+	screen:Timetable,
+	navigationOptions:{
+	tabBarLabel:'Timetable',
+	tabBarIcon : ({ tintColor }) => (
+		<Icon name="ios-grid" size={24}/>
+	)
+	}
+},
 
-  substitution: {
-    screen:Substitution,
-    navigationOptions:{
-      tabBarLabel:'Substitutions',
-      tabBarIcon : ({ tintColor }) => (
-        <Icon name="ios-swap" size={24}/>
-      )
-    }
-  },
+substitution: {
+	screen:Substitution,
+	navigationOptions:{
+	tabBarLabel:'Substitutions',
+	tabBarIcon : ({ tintColor }) => (
+		<Icon name="ios-swap" size={24}/>
+	)
+	}
+},
 
-  permissionStatus: { 
-    screen:Status,
-    navigationOptions:{
-      tabBarLabel:'Permission Status',
-      tabBarIcon : ({ tintColor }) => (
-        <Icon name="ios-alert" size={24}/>
-      )
-    }
-  },
+permissionStatus: { 
+	screen:Status,
+	navigationOptions:{
+	tabBarLabel:'Permission Status',
+	tabBarIcon : ({ tintColor }) => (
+		<Icon name="ios-alert" size={24}/>
+	)
+	}
+},
 
-  account: { 
-    screen:Account,
-    navigationOptions:{
-      tabBarLabel:'Account',
-      tabBarIcon : ({ tintColor }) => (
-        <Icon name="ios-contact" size={24}/>
-      )
-    }
-  }
+account: { 
+	screen:Account,
+	navigationOptions:{
+	tabBarLabel:'Account',
+	tabBarIcon : ({ tintColor }) => (
+		<Icon name="ios-contact" size={24}/>
+	)
+	}
+}
 })
 
 class WelcomeScreen extends Component{
@@ -61,7 +86,7 @@ class WelcomeScreen extends Component{
 	state = {
 		username: '',
 		password: '',
-		auth_token: '12',
+		auth_token: '',
 		
 	} 
 	Login = async () => {
@@ -92,131 +117,124 @@ class WelcomeScreen extends Component{
 			console.error(error);
 			});
 
-    }
-  tempfunc() {
-   
-     let userData={
-        username:this.state.username,
-        token:this.state.auth_token
-    }
-      
-    AsyncStorage.setItem('userData',  JSON.stringify(userData))
+	}
+	tempfunc() {
 
-	showdata= async () => {
+		let userData={
+			username:this.state.username,
+			token:this.state.auth_token
+		}
+			
+		AsyncStorage.setItem('userData',  JSON.stringify(userData))
+
+		showdata= async () => {
 		let data= await AsyncStorage.getItem('userData');
 		let d= JSON.parse(data);
 		Alert.alert(d.username+" has logged in");
 	}
 	
 	showdata();
-    this.props.navigation.navigate('bottomTab');
+	this.props.navigation.navigate('bottomTab');
+	}
+	render(){
+		//If auth token is not present
+		if (this.state.auth_token == '') {
+		return (
+			<View style = {{
+				flex: 2,
+				justifyContent: "flex-end",
+				alignItems: "center",
+			}}>
 	
+		
+			<TextInput
+			placeholder="Enter User name"
+			onChangeText={TextInputValue =>
+				this.setState({ username: TextInputValue })}
+			underlineColorAndroid='transparent'
+			style={
+				{
+				textAlign: 'center',
+				width: '90%',
+				marginBottom: 50,
+				height: 40,
+				borderRadius: 5,
+				fontSize: 20,
+				backgroundColor: "#EEEEEE"
+				}
+			}
+			/>
+			
+			<TextInput
+			placeholder="Enter password"
+			onChangeText={TextInputValue =>
+				this.setState({ password: TextInputValue })}
+			underlineColorAndroid='transparent'
+			secureTextEntry={true}
+			style={
+				{
+				textAlign: 'center',
+				width: '90%',
+				marginBottom: 50,
+				height: 40,
+				borderRadius: 5,
+				fontSize: 20,
+				backgroundColor: "#EEEEEE"
+				}
+			}
+			/>
 
-        
-    }
-     render(){
-       //If auth token is not present
-       if (this.state.auth_token == '') {
-         return (
-           <View style = {{
-             flex: 2,
-             justifyContent: "flex-end",
-             alignItems: "center",
-           }}>
-       
-          
-             <TextInput
-               placeholder="Enter User name"
-               onChangeText={TextInputValue =>
-                 this.setState({ username: TextInputValue })}
-               underlineColorAndroid='transparent'
-               style={
-                 {
-                   textAlign: 'center',
-                   width: '90%',
-                   marginBottom: 50,
-                   height: 40,
-                   borderRadius: 5,
-                   fontSize: 20,
-                   backgroundColor: "#EEEEEE"
-                 }
-               }
-             />
-            
-             <TextInput
-               placeholder="Enter password"
-               onChangeText={TextInputValue =>
-                 this.setState({ password: TextInputValue })}
-               underlineColorAndroid='transparent'
-               secureTextEntry={true}
-               style={
-                 {
-                   textAlign: 'center',
-                   width: '90%',
-                   marginBottom: 50,
-                   height: 40,
-                   borderRadius: 5,
-                   fontSize: 20,
-                   backgroundColor: "#EEEEEE"
-                 }
-               }
-             />
-
-            
+			
 
 
-              <View>
-             <TouchableOpacity onPress={() => this.tempfunc()}>
-               <View style={{
-                 height: 50, 
-                 width: "70%",
-                 backgroundColor:'#147efb', 
-                 justifyContent: 'center',
-                 alignItems: 'center',
-                 margin: 50,
-                 borderRadius: 100
-               }}>
-                 <Text style={{ 
-                   fontSize: 20,
-                   color: '#FFFFFF',
-                 }}>
-                   Login </Text>
-                   
-               </View>
-             </TouchableOpacity>
-  
-           </View>
-           </View>
-         );
-       }
-       else
-       {
-        return(
-          <View>
-              {this.props.navigation.navigate("bottomTab")}
-          </View>
-        );
-       }
-      }
-    }
-  
-    
+			<View>
+			<TouchableOpacity onPress={() => this.tempfunc()}>
+			<View style={{
+				height: 50, 
+				width: "70%",
+				backgroundColor:'#147efb', 
+				justifyContent: 'center',
+				alignItems: 'center',
+				margin: 50,
+				borderRadius: 100
+			}}>
+				<Text style={{ 
+				fontSize: 20,
+				color: '#FFFFFF',
+				}}>
+				Login </Text>
+				
+			</View>
+			</TouchableOpacity>
 
-
+		</View>
+		</View>
+		);
+		}
+		else
+		{
+			return(
+			<View>
+				{this.props.navigation.navigate("bottomTab")}
+			</View>
+			);
+		}
+	}
+}
 
 const SwitchNav = createSwitchNavigator({
-  welcome : { screen : WelcomeScreen},
-  bottomTab:{ screen : BottomTabNavigator}
-})
+	welcome : { screen : WelcomeScreen},
+	bottomTab:{ screen : BottomTabNavigator}
+	})
 
-class App extends Component {
+	class App extends Component {
 
-  render() {
-  
-    return (
-    <SwitchNav/>
-    );
-  }
+	render() {
+
+		return (
+		<SwitchNav/>
+		);
+	}
 }
 export default App
 
