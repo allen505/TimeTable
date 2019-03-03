@@ -58,55 +58,65 @@ const BottomTabNavigator = createBottomTabNavigator({
 
 class WelcomeScreen extends Component{
 
-  state = {
-    username: '',
-    password: '',
-    auth_token_state: '',
-    
-  } 
-     Login = async () => {
-       fetch('LOGIN DATA LINK', {
-         method: 'post',
-         headers: {
-           'Content-Type': 'application/json'
-         },
-         body: JSON.stringify({
-           "provider": "username",
-           "data": {
-             "username": this.state.username,
-             "password": this.state.password
-           }
-         })
-       }).then((response) => response.json())
-         .then((res) => {
-           if (typeof (res.message) != "undefined") {
-             Alert.alert("Error", "Error: " + res.message);
-           }
-           else {
-             this.setState({ auth_token: res.auth_token });
-             AsyncStorage.setItem('token',res.auth_token);
-             hasToken  = 'true';
-             Alert.alert("Welcome", " You have succesfully logged in");
-           }
-         }).catch((error) => {
-           console.error(error);
-         });
+	state = {
+		username: '',
+		password: '',
+		auth_token: '12',
+		
+	} 
+	Login = async () => {
+		fetch('LOGIN DATA LINK', {
+			method: 'post',
+			headers: {
+			'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+			"provider": "username",
+			"data": {
+				"username": this.state.username,
+				"password": this.state.password
+			}
+			})
+		}).then((response) => response.json())
+			.then((res) => { 
+			if (typeof (res.message) != "undefined") {
+				Alert.alert("Error", "Error: " + res.message);
+			}
+			else {
+				this.setState({ auth_token: res.auth_token });
+				AsyncStorage.setItem('token',res.auth_token);
+				hasToken  = 'true';
+				Alert.alert("Welcome", " You have succesfully logged in");
+			}
+			}).catch((error) => {
+			console.error(error);
+			});
 
-      
-
-       }
+    }
   tempfunc() {
+   
+     let userData={
+        username:this.state.username,
+        token:this.state.auth_token
+    }
+      
+    AsyncStorage.setItem('userData',  JSON.stringify(userData))
 
-    this.Login.bind(this);
-    this.setState = '1234';
+	showdata= async () => {
+		let data= await AsyncStorage.getItem('userData');
+		let d= JSON.parse(data);
+		Alert.alert(d.username+" has logged in");
+	}
+	
+	showdata();
     this.props.navigation.navigate('bottomTab');
-
+	
 
         
-     }
+    }
      render(){
        //If auth token is not present
-       if (this.state.auth_token_state == '') {
+       if (this.state.auth_token == '') {
          return (
            <View style = {{
              flex: 2,
@@ -181,12 +191,11 @@ class WelcomeScreen extends Component{
        }
        else
        {
-          return(
-       <View>
-            {this.props.navigation.navigate("bottomTab")}
-            </View>
-
-          );
+        return(
+          <View>
+              {this.props.navigation.navigate("bottomTab")}
+          </View>
+        );
        }
       }
     }
