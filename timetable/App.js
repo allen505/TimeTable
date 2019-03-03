@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput,Button } from 'react-native';
+
+import { View, Text, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
 import { 
 createBottomTabNavigator,
 createSwitchNavigator
 } from 'react-navigation'
+
 import Icon from 'react-native-vector-icons/Ionicons'
-import {Alert, TouchableOpacity } from 'react-native';
 import { AsyncStorage } from 'react-native';
 
 import styles from './style'
 import Timetable from './components/Timetable'
 import Substitution from './components/Substitution'
 import Status from './components/Status'
+
 
 
 class Account extends Component{
@@ -79,10 +81,10 @@ account: {
 	)
 	}
 }
+
 })
 
 class WelcomeScreen extends Component{
-
 	state = {
 		username: '',
 		password: '',
@@ -235,6 +237,7 @@ const SwitchNav = createSwitchNavigator({
 		<SwitchNav/>
 		);
 	}
+
 }
 export default App
 

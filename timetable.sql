@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2019 at 08:18 PM
+-- Generation Time: Feb 24, 2019 at 03:19 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -19,37 +19,85 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test2`
+-- Database: `timetable`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `class_table`
+-- Table structure for table `ajay`
 --
 
-CREATE TABLE `class_table` (
-  `DAY` varchar(50) NOT NULL,
-  `1` varchar(50) NOT NULL,
-  `2` varchar(50) NOT NULL,
-  `3` varchar(50) NOT NULL,
-  `4` varchar(50) NOT NULL,
-  `5` varchar(50) NOT NULL,
-  `6` varchar(50) NOT NULL,
-  `7` varchar(50) NOT NULL
+CREATE TABLE `ajay` (
+  `Slot ID` int(50) NOT NULL,
+  `Subject ID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `class_table`
+-- Table structure for table `krishna`
 --
 
-INSERT INTO `class_table` (`DAY`, `1`, `2`, `3`, `4`, `5`, `6`, `7`) VALUES
-('MONDAY', '', '', '', '', '', '', ''),
-('TUESDAY', '', '', '', '', '', '', ''),
-('WEDNESDAY', '', '', '', '', '', '', ''),
-('THURSDAY', '', '', '', '', '', '', ''),
-('FRIDAY', '', '', '', '', '', '', ''),
-('SATURDAY', '', '', '', '', '', '', '');
+CREATE TABLE `krishna` (
+  `Slot ID` int(50) NOT NULL,
+  `Subject ID` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mohan`
+--
+
+CREATE TABLE `mohan` (
+  `Slot ID` int(50) NOT NULL,
+  `Subject ID` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `neethu`
+--
+
+CREATE TABLE `neethu` (
+  `Slot ID` int(50) NOT NULL,
+  `Subject ID` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `poornima`
+--
+
+CREATE TABLE `poornima` (
+  `Slot ID` int(50) NOT NULL,
+  `Subject ID` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rajath`
+--
+
+CREATE TABLE `rajath` (
+  `Slot ID` int(50) NOT NULL,
+  `Subject ID` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roopashree`
+--
+
+CREATE TABLE `roopashree` (
+  `Slot ID` int(50) NOT NULL,
+  `Subject ID` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -58,7 +106,7 @@ INSERT INTO `class_table` (`DAY`, `1`, `2`, `3`, `4`, `5`, `6`, `7`) VALUES
 --
 
 CREATE TABLE `slot_table_4a` (
-  `Slot ID` varchar(50) NOT NULL,
+  `Slot ID` tinyint(50) NOT NULL,
   `Subject ID` varchar(50) NOT NULL COMMENT 'This column will have data in form of [VTU SUBJECT CODE]+[SECTION]'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='The slots and subjects table for class 4A';
 
@@ -115,18 +163,13 @@ CREATE TABLE `teacher_table` (
 
 CREATE TABLE `temp_sub` (
   `Subject ID` varchar(50) NOT NULL,
-  `Teacher ID` varchar(50) NOT NULL
+  `Teacher ID` varchar(50) NOT NULL,
+  `Date` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `class_table`
---
-ALTER TABLE `class_table`
-  ADD KEY `1` (`1`,`2`,`3`,`4`,`5`,`6`,`7`);
 
 --
 -- Indexes for table `slot_table_4a`
@@ -153,6 +196,16 @@ ALTER TABLE `subject_teacher`
 --
 ALTER TABLE `teacher_table`
   ADD PRIMARY KEY (`Teacher ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `slot_table_4a`
+--
+ALTER TABLE `slot_table_4a`
+  MODIFY `Slot ID` tinyint(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
