@@ -24,8 +24,8 @@ class Account extends Component{
 
     logout = () => {
 		console.log("logout is pressed");
-        AsyncStorage.removeItem('userData');
-        this.props.navigation.navigate('welcome');
+		AsyncStorage.removeItem('userData');
+		this.props.navigation.navigate('welcome');
     }
 
     render(){
