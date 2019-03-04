@@ -13,7 +13,7 @@ import styles from './style'
 import Timetable from './components/Timetable'
 import Substitution from './components/Substitution'
 import Status from './components/Status'
-
+import {Notifications, Permissions } from 'expo'
 
 
 class Account extends Component{
@@ -84,8 +84,22 @@ account: {
 
 })
 
+async function register(){
+  const {status}= await Permissions.askAsync(Permissions.NOTIFICATIONS);
+  if(status!=='granted'){
+    alert('You need to enable permissions from settings');
+    return;
+  }
+  const token=await Notifications.getExpoPushTokenAsync();
+  console.log(status,token);
+}
+
 class WelcomeScreen extends Component{
-	state = {
+  componentWillMount(){
+    register();
+  }
+  
+  state = {
 		username: '',
 		password: '',
 		auth_token: '',
