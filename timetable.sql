@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2019 at 03:19 PM
+-- Generation Time: Mar 03, 2019 at 07:29 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -33,6 +33,16 @@ CREATE TABLE `ajay` (
   `Subject ID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `ajay`
+--
+
+INSERT INTO `ajay` (`Slot ID`, `Subject ID`) VALUES
+(17, '17CSE45_4A'),
+(31, '17CSE45_4A'),
+(33, '17CSE45_4A'),
+(36, '17CSE45_4A');
+
 -- --------------------------------------------------------
 
 --
@@ -43,6 +53,16 @@ CREATE TABLE `krishna` (
   `Slot ID` int(50) NOT NULL,
   `Subject ID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `krishna`
+--
+
+INSERT INTO `krishna` (`Slot ID`, `Subject ID`) VALUES
+(9, '17CSE43_4A'),
+(16, '17CSE43_4A'),
+(20, '17CSE43_4A'),
+(34, '17CSE43_4A');
 
 -- --------------------------------------------------------
 
@@ -55,6 +75,16 @@ CREATE TABLE `mohan` (
   `Subject ID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `mohan`
+--
+
+INSERT INTO `mohan` (`Slot ID`, `Subject ID`) VALUES
+(3, '17CSE44_4A'),
+(13, '17CSE44_4A'),
+(22, '17CSE44_4A'),
+(32, '17CSE44_4A');
+
 -- --------------------------------------------------------
 
 --
@@ -65,6 +95,13 @@ CREATE TABLE `neethu` (
   `Slot ID` int(50) NOT NULL,
   `Subject ID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `neethu`
+--
+
+INSERT INTO `neethu` (`Slot ID`, `Subject ID`) VALUES
+(8, '17CPH_4A');
 
 -- --------------------------------------------------------
 
@@ -77,6 +114,16 @@ CREATE TABLE `poornima` (
   `Subject ID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `poornima`
+--
+
+INSERT INTO `poornima` (`Slot ID`, `Subject ID`) VALUES
+(4, '17MAT4_4A'),
+(12, '17MAT4_4A'),
+(19, '17MAT4_4A'),
+(29, '17MAT4_4A');
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +135,16 @@ CREATE TABLE `rajath` (
   `Subject ID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `rajath`
+--
+
+INSERT INTO `rajath` (`Slot ID`, `Subject ID`) VALUES
+(10, '17CSE42_4A'),
+(14, '17CSE42_4A'),
+(15, '17CSE42_4A'),
+(30, '17CSE42_4A');
+
 -- --------------------------------------------------------
 
 --
@@ -98,6 +155,16 @@ CREATE TABLE `roopashree` (
   `Slot ID` int(50) NOT NULL,
   `Subject ID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `roopashree`
+--
+
+INSERT INTO `roopashree` (`Slot ID`, `Subject ID`) VALUES
+(11, '17CSE46_4A'),
+(18, '17CSE42_4A'),
+(22, '17CSE42_4A'),
+(35, '17CSE42_4A');
 
 -- --------------------------------------------------------
 
@@ -164,7 +231,8 @@ CREATE TABLE `teacher_table` (
 CREATE TABLE `temp_sub` (
   `Subject ID` varchar(50) NOT NULL,
   `Teacher ID` varchar(50) NOT NULL,
-  `Date` varchar(50) NOT NULL
+  `Date` varchar(50) NOT NULL,
+  `TokenID` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
